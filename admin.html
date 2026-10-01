@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head><body class="p-4">
+<h2>Admin Analytics - Table Wise Income</h2>
+<p>Silver Tier: 60,000 | Gold Tier: 1,50,000 | Platinum Tier: 2,80,000 (Most Profitable)</p>
+<h4 style="color:green;">AI Prediction: Increase Platinum Price to Rs.4500</h4>
+<canvas id="c" width="400" height="200"></canvas>
+<script>
+new Chart(document.getElementById('c'), {
+  type: 'bar',
+  data: {
+    labels: ['Silver Rs.1000','Gold Rs.2000','Platinum Rs.4000'],
+    datasets: [{ label: 'Income Rs.', data: [60000,150000,280000], backgroundColor: ['silver','gold','purple'] }]
+  }
+});
+</script>
+<hr>
+<a href="/"><button>Back to Home</button></a>
+</body></html>
