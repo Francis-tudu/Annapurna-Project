@@ -1,1 +1,40 @@
 
+<html>
+<head>
+<title>Kitchen Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-4">
+
+<div class="d-flex justify-content-between align-items-center">
+<h2>Kitchen Dashboard</h2>
+<a href="/admin" class="btn btn-dark">Back to Admin</a>
+</div>
+
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+  <a href="/" class="btn btn-dark m-1">Home</a>
+  <a href="/admin" class="btn btn-primary m-1">Admin Analytics</a>
+  <a href="/billing" class="btn btn-success m-1">Bills</a>
+  <a href="/booking" class="btn btn-warning m-1">Booking</a>
+</div>
+
+{% for order in orders %}
+<div class="card mt-2 shadow-sm">
+  <div class="card-body d-flex justify-content-between">
+    <div>
+      <h5>Table {{ order.table }}</h5>
+      <p class="mb-0">{{ order.item }} - <b class="text-danger">{{ order.status }}</b></p>
+    </div>
+    <div>
+      <span class="badge bg-warning">{{ order.status }}</span>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="alert alert-info mt-3">No orders yet in Kitchen</div>
+{% endfor %}
+
+</div>
+</body>
+</html>
