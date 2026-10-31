@@ -1,1 +1,38 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>Billing - Table {{ table }}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-4">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card p-4 shadow rounded-4 text-center">
+<h2>Billing - Table {{ table }}</h2>
+<p class="text-muted">Client Bill Receipt</p>
+<hr>
+<ul class="list-group mb-3 text-start">
+{% for i in orders %}
+<li class="list-group-item d-flex justify-content-between">
+<span>{{ i.name }}</span>
+<span>Rs. {{ i.price }}</span>
+</li>
+{% endfor %}
+</ul>
+<div class="text-start bg-light p-3 rounded">
+<h5>Food Total: Rs. {{ total }}</h5>
+<h5>Table Charge: Rs. {{ table_charge }}</h5>
+<hr>
+<h3>Grand Total: Rs. {{ grand }}</h3>
+</div>
+<form action="/payment/{{ table }}" method="POST">
+<button class="btn btn-success btn-lg w-100 mt-3">Pay Now</button>
+</form>
+<a href="/" class="btn btn-outline-dark w-100 mt-2">Back to Home</a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
